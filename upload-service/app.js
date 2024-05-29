@@ -1,7 +1,14 @@
-const express = require('express'); 
+require('dotenv').config();
+const express = require('express');
+const uploadRouter = require('./routes/UploadRoutes');
 
 const app = express(); 
 const PORT = 3000; 
+
+app.get('/', (req, res) => {res.send('Hello World!')});
+
+app.use("/upload", uploadRouter);
+
 
 app.listen(PORT, (error) =>{ 
 	if(!error) 
